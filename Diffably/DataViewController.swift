@@ -18,6 +18,7 @@ class DataViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureDataSource()
     }
     
     func configureDataSource() {
