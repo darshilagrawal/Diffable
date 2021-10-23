@@ -32,7 +32,10 @@ class ViewController: UIViewController {
             let newData = DataToDisplay(name: userName)
             self.dataEntries.append(newData)
         }
+        let cancelAction = UIAlertAction(title: "cancel", style: .destructive, handler: nil)
         alert.addAction(action)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true)
     }
     
     @objc func navigateNext() {
