@@ -8,13 +8,14 @@
 import Foundation
 import UIKit
 
-class DataViewController: UITableViewController {
+class DataViewController: UICollectionViewController {
     
     enum Section {
         case main
     }
     var dataEntries = [DataToDisplay]()
-    var dataSource: UITableViewDiffableDataSource<Section,DataToDisplay>!
+//    var dataSource: UITableViewDiffableDataSource<Section,DataToDisplay>!
+    var dataSource: UICollectionViewDiffableDataSource<Section,DataToDisplay>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +25,9 @@ class DataViewController: UITableViewController {
     }
     
     func configureDataSource() {
-        dataSource = UITableViewDiffableDataSource<Section,DataToDisplay>(tableView: tableView, cellProvider: { tableView, indexPath, itemIdentifier in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            cell.textLabel?.text = itemIdentifier.name
+        dataSource = UICollectionViewDiffableDataSource<Section,DataToDisplay>(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+            
             return cell
         })
     }
